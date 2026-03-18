@@ -30,5 +30,12 @@ jobs:
       # 4. 執行你的 Python 腳本 [cite: 196-199]
       - name: Run Spotify Spider
         run: python main.py
-
+# 5. 輸出結果存檔 (Artifact) - 這步是為了下載產出的檔案供作業截圖 [cite: 210-212]
+      - name: Upload Data Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: spotify-results
+          path: |
+            fujii_kaze_tracks.json
+            fujii_kaze_tracks.csv
       
