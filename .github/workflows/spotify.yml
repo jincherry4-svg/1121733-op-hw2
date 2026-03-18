@@ -1,0 +1,25 @@
+name: Spotify API Fetch
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天執行一次（UTC時間）
+  workflow_dispatch:      # 允許手動執行
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install requests
+      run: pip install requests
+
+    - name: Run Python script
+      run: python main.py
